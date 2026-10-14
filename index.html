@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Scallop — Capital that breathes. Built on Sui.</title>
+<meta name="description" content="Scallop is the next generation money market on Sui — institutional-grade lending and borrowing, sCoins, flash loans and composable DeFi tooling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,600;9..144,1,600&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/logos/Scallop.svg">
+</head>
+<body>
+<!-- ambient canvas -->
+<canvas id="bubbleCanvas" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<nav id="nav" class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#" aria-label="Scallop home">
+      <img src="assets/logos/logotype_reversed_primary_color.svg" alt="Scallop" class="nav__logo">
+    </a>
+    <div class="nav__links" id="navLinks">
+      <a href="#overview">Overview</a>
+      <a href="#showcase">App</a>
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#security">Security</a>
+    </div>
+    <div class="nav__actions">
+      <a href="https://docs.scallop.io" target="_blank" rel="noopener" class="nav__doc">Docs</a>
+      <a href="https://sui.scallop.io/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Launch App</a>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="#overview">Overview</a>
+    <a href="#showcase">App</a>
+    <a href="#how">How it works</a>
+    <a href="#features">Features</a>
+    <a href="#security">Security</a>
+    <a href="https://docs.scallop.io" target="_blank" rel="noopener">Documentation →</a>
+    <a href="https://sui.scallop.io/" target="_blank" rel="noopener" class="btn btn--primary">Launch App</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero__grid">
+    <div class="hero__copy">
+      <div class="eyebrow reveal">
+        <span class="dot"></span>
+        Next generation money market &nbsp;·&nbsp; Built on Sui
+        <span class="eyebrow__sui">
+          <img src="assets/logos/sui-logo.svg" alt="" width="16" height="16"> SUI
+        </span>
+      </div>
+      <h1 class="hero__title reveal d1">
+        Capital that<br>
+        <span class="italic">breathes</span> with<br>
+        the market.
+      </h1>
+      <p class="hero__desc reveal d2">
+        Scallop is an institutional-grade lending market on Sui. Supply assets to earn adaptive yield, borrow against collateral with capital efficiency, and compose with <em>sCoins</em> — yield-bearing assets that stay liquid.
+      </p>
+      <div class="hero__ctas reveal d3">
+        <a href="https://sui.scallop.io/" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Launch App <span class="btn__arrow">→</span></a>
+        <a href="https://docs.scallop.io/" target="_blank" rel="noopener" class="btn btn--outline btn--lg">Read Docs</a>
+      </div>
+      <div class="hero__meta reveal d4">
+        <div class="meta__row">
+          <span class="meta__k">Powered by</span>
+          <span class="meta__v"><img src="assets/logos/sui-logo.svg" alt="" width="18" height="18"> Sui • Move</span>
+          <span class="meta__sep"></span>
+          <span class="meta__k">Audited by</span>
+          <span class="meta__v">OtterSec • Zellic • MoveBit</span>
+        </div>
+        <div class="meta__live">
+          <span class="live__dot"></span> Lending markets live on Sui Mainnet
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual reveal d2" aria-hidden="true">
+      <div class="shell-stage">
+        <!-- glow -->
+        <div class="shell-glow"></div>
+        <div class="shell-glow shell-glow--2"></div>
+        <!-- shell illustration -->
+        <div class="shell" id="shell">
+          <svg viewBox="0 0 400 260" class="shell__svg" role="img" aria-label="Stylized scallop shell">
+            <defs>
+              <linearGradient id="sg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#E8F6F9" stop-opacity="0.95"/>
+                <stop offset="55%" stop-color="#9CD0DD" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#334664" stop-opacity="0.95"/>
+              </linearGradient>
+              <linearGradient id="sg2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#9CD0DD" stop-opacity="0.6"/>
+              </linearGradient>
+              <radialGradient id="pearl" cx="50%" cy="45%">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="60%" stop-color="#F1D6C8"/>
+                <stop offset="100%" stop-color="#9CD0DD" stop-opacity="0.6"/>
+              </radialGradient>
+              <filter id="softShadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0A1426" flood-opacity="0.45"/></filter>
+            </defs>
+            <!-- bottom valve -->
+            <g class="valve valve--bottom">
+              <path d="M 38 142 C 70 205, 122 238, 200 244 C 278 238, 330 205, 362 142 C 335 152, 268 158, 200 158 C 132 158, 65 152, 38 142 Z" fill="url(#sg1)" filter="url(#softShadow)" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+              <!-- rays bottom -->
+              <path d="M 82 150 C 105 178, 138 205, 170 218" stroke="rgba(255,255,255,0.45)" stroke-width="2.2" stroke-linecap="round" opacity="0.9"/>
+              <path d="M 120 147 C 135 171, 152 195, 185 215" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M 200 143 L 200 238" stroke="rgba(255,255,255,0.55)" stroke-width="2.6" stroke-linecap="round"/>
+              <path d="M 280 147 C 265 171, 248 195, 215 215" stroke="rgba(255,255,255,0.28)" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M 318 150 C 295 178, 262 205, 230 218" stroke="rgba(255,255,255,0.45)" stroke-width="2.2" stroke-linecap="round"/>
+              <!-- pearl -->
+              <ellipse cx="200" cy="170" rx="22" ry="16" fill="url(#pearl)" opacity="0.98"/>
+              <ellipse cx="194" cy="164" rx="6" ry="4.5" fill="white" opacity="0.85"/>
+            </g>
+            <!-- top valve -->
+            <g class="valve valve--top">
+              <path d="M 38 142 C 62 78, 120 42, 200 36 C 280 42, 338 78, 362 142 C 335 132, 268 126, 200 126 C 132 126, 65 132, 38 142 Z" fill="url(#sg2)" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+              <path d="M 98 118 C 118 92, 148 68, 178 56" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M 140 112 C 154 88, 172 66, 195 48" stroke="rgba(255,255,255,0.25)" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M 200 36 L 200 126" stroke="rgba(255,255,255,0.6)" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M 260 112 C 246 88, 228 66, 205 48" stroke="rgba(255,255,255,0.25)" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M 302 118 C 282 92, 252 68, 222 56" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+              <!-- hinge shadow -->
+              <ellipse cx="200" cy="142" rx="162" ry="7" fill="#0A1426" opacity="0.18"/>
+            </g>
+          </svg>
+          <!-- floating micro bubbles from shell -->
+          <div class="shell__bubbles">
+            <i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+        <!-- floating stats -->
+        <div class="float-card float-card--a">
+          <span class="float-card__k">Supply APY</span>
+          <span class="float-card__v">~ 7.01% <small>USDsui</small></span>
+          <span class="float-card__s">Utilization 84.85%</span>
+        </div>
+        <div class="float-card float-card--b">
+          <span class="float-card__k">Collateral weight</span>
+          <span class="float-card__v">up to 85%</span>
+          <span class="float-card__s">scaSUI • USDsui • haSUI</span>
+        </div>
+        <div class="float-card float-card--c">
+          <span class="float-card__dot"></span> Risk Level &lt; 100% = safe
+        </div>
+      </div>
+      <p class="visual__caption">Stylized shell breathing — bubbles surface, never block interaction.</p>
+    </div>
+  </div>
+
+  <!-- bottom curve -->
+  <div class="hero__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C 280,80 560,0 720,28 C 880,56 1140,72 1440,20 L1440,80 L0,80 Z" fill="#F6F8FA"/></svg>
+  </div>
+</header>
+
+<!-- stats strip -->
+<section class="strip">
+  <div class="strip__inner">
+    <div class="strip__item">
+      <span class="strip__k">Total Value Locked</span>
+      <span class="strip__v">$10.26M <small>USD</small></span>
+      <span class="strip__d down">−8.18% 7d</span>
+    </div>
+    <div class="strip__sep"></div>
+    <div class="strip__item">
+      <span class="strip__k">Total Lending Supply</span>
+      <span class="strip__v">$7.35M</span>
+      <span class="strip__d down">−7% 7d</span>
+    </div>
+    <div class="strip__sep"></div>
+    <div class="strip__item">
+      <span class="strip__k">Collateral Deposited</span>
+      <span class="strip__v">$5.41M</span>
+      <span class="strip__d down">−7.13% 7d</span>
+    </div>
+    <div class="strip__sep"></div>
+    <div class="strip__item">
+      <span class="strip__k">Total Borrowed</span>
+      <span class="strip__v">$2.49M</span>
+      <span class="strip__d down">−2.12% 7d</span>
+    </div>
+    <div class="strip__note">Figures captured from Scallop app overview (13 Oct 2026). Market conditions move daily — verify live in app.</div>
+  </div>
+</section>
+
+<!-- overview -->
+<section class="section section--light" id="overview">
+  <div class="wrap">
+    <div class="split">
+      <div class="split__left">
+        <div class="label"><span></span> What is Scallop</div>
+        <h2 class="h2">The money market <br> Sui was built for.</h2>
+        <p class="lead">
+          Scallop is a decentralized lending and borrowing protocol on Sui. It lets you supply assets to earn yield, use those assets as collateral, and borrow with a risk engine tuned for Move’s object model. No custody, no permission — just over-collateralized markets with transparent risk.
+        </p>
+        <div class="ticks">
+          <div class="tick"><i>◐</i><div><strong>Supply & earn</strong><span>Adaptive interest, sCoin receipt that stays transferable and composable.</span></div></div>
+          <div class="tick"><i>◑</i><div><strong>Borrow with control</strong><span>Risk Level &lt;100% keeps positions safe. Elegant liquidation design.</span></div></div>
+          <div class="tick"><i>◎</i><div><strong>Built on Sui &amp; Move</strong><span>Object-centric, parallel execution, low fees — the right rails for a money market.</span></div></div>
+        </div>
+      </div>
+      <div class="split__right">
+        <div class="overview-card">
+          <div class="overview-card__head">
+            <span class="pill">Lending + Collateral — two tracks, one wallet</span>
+            <h3>Supplying is not the same as posting collateral.</h3>
+            <p>Supply to the lending pool to earn APY. Separately, deposit into a Collateral Pool to unlock borrowing power. Scallop keeps the two concerns distinct so you can compose precisely.</p>
+          </div>
+          <div class="overview-grid">
+            <div class="og">
+              <span class="og__k">Lending Pools</span>
+              <span class="og__v">11 <small>live markets</small></span>
+              <span class="og__l">scaSUI • USDsui • XAU • SUI • USDC • USDT…</span>
+            </div>
+            <div class="og">
+              <span class="og__k">Collateral Pools</span>
+              <span class="og__v">Collateral weight 50–85%</span>
+              <span class="og__l">Deposit → borrow. Withdraw anytime if Risk Level allows.</span>
+            </div>
+            <div class="og og--accent">
+              <span class="og__k">sCoins</span>
+              <span class="og__v">sSUI, sUSDC… <small>yield-bearing</small></span>
+              <span class="og__l">Standard Sui coins — transfer, trade, or use in DeFi while your claim moves with them.</span>
+            </div>
+          </div>
+          <div class="overview-foot">
+            <a href="https://docs.scallop.io/scallop-protocol-mechanics/scallop-lending" target="_blank" rel="noopener">How sCoins work →</a>
+            <span>Rate curves &amp; utilizations are on-chain and public.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- showcase -->
+<section class="section section--navy" id="showcase">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="label label--light"><span></span> Product showcase</div>
+        <h2 class="h2 h2--light">The app, without the clutter.</h2>
+      </div>
+      <p class="section-head__desc">Real Scallop screens, recomposed. Tabs switch between genuine application views — the chrome is ours, the data is the protocol’s.</p>
+    </div>
+
+    <div class="showcase">
+      <div class="showcase__tabs" role="tablist" aria-label="Scallop app views">
+        <button class="tab is-active" data-tab="lend" role="tab" aria-selected="true">Lending</button>
+        <button class="tab" data-tab="collateral" role="tab">Collateral</button>
+        <button class="tab" data-tab="stake" role="tab">Liquid Stake</button>
+        <button class="tab" data-tab="vesca" role="tab">veSCA</button>
+      </div>
+
+      <div class="showcase__stage">
+        <div class="browser">
+          <div class="browser__bar">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span class="browser__title">sui.scallop.io — <span id="browserTitle">Lending Pools</span></span>
+            <span class="browser__pill">Sui Mainnet</span>
+          </div>
+          <div class="browser__body">
+            <div class="browser__panel is-active" data-panel="lend">
+              <img src="assets/screenshots/2ee19092-65d1-433a-ac01-b8c86d1273e5-Screenshot 2026-10-13 215817.png" alt="Scallop Lending Pools — Your Supply, APY, Utilization">
+            </div>
+            <div class="browser__panel" data-panel="collateral">
+              <img src="assets/screenshots/c4fe1d52-56b8-4aa6-bbef-b40a2dc32c32-Screenshot 2026-10-13 215844.png" alt="Scallop Collateral Pools — Deposit, Total Deposit, Collateral Weight">
+            </div>
+            <div class="browser__panel" data-panel="stake">
+              <img src="assets/screenshots/0ee8c1dc-53cd-4b8d-bc05-01cc251642b8-Screenshot 2026-10-13 215833.png" alt="Scallop Liquid-Stake SUI for scaSUI">
+            </div>
+            <div class="browser__panel" data-panel="vesca">
+              <img src="assets/screenshots/539e6e45-c6a1-4c93-a150-68462d134ce3-Screenshot 2026-10-13 215706.png" alt="Scallop veSCA — lock SCA, boost earnings">
+            </div>
+          </div>
+        </div>
+        <div class="showcase__copy">
+          <h3 id="showcaseTitle">Supply to earn. Utilization sets the rate.</h3>
+          <p id="showcaseDesc">Lenders receive sCoins that accrue value. When utilization rises, APY rises — transparent curves, no hidden levers. Withdraw anytime if liquidity allows.</p>
+          <ul class="mini-list" id="showcaseList">
+            <li>Live APYs — e.g. USDsui 7.01% at 84.85% utilization in screenshot</li>
+            <li>scaSUI as liquid staked SUI, usable as collateral</li>
+            <li>Rewards separated from base yield</li>
+          </ul>
+          <a id="showcaseLink" href="https://sui.scallop.io/" target="_blank" rel="noopener" class="link">Open lending market →</a>
+        </div>
+      </div>
+
+      <div class="showcase__strip">
+        <span>All figures are point-in-time from app screenshots — not live on this page.</span>
+        <span>Images cropped for clarity; composition is original.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- how it works -->
+<section class="section section--light" id="how">
+  <div class="wrap">
+    <div class="label"><span></span> How it works</div>
+    <h2 class="h2 h2--center">Three moves. No custody.</h2>
+    <p class="lead lead--center">You stay in control of keys the whole time. The protocol only enforces over-collateralization.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">01</div>
+        <div class="step__card">
+          <h3>Supply</h3>
+          <p>Choose a lending pool — SUI, USDC, USDT, scaSUI, USDsui, XAU and more. Supply and receive the matching sCoin. It’s a standard Sui coin that steadily gains value.</p>
+          <div class="step__meta">Your Supply → Total Supply → Utilization → APY</div>
+        </div>
+        <div class="step__icon" aria-hidden="true">↘</div>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <div class="step__card">
+          <h3>Choose how you earn</h3>
+          <p>Keep the sCoin for lending yield, or deposit eligible assets into a Collateral Pool to unlock borrowing power. The two tracks are separate — you decide the mix.</p>
+          <div class="step__meta">Supply APY ≠ Collateral yield — distinct actions</div>
+        </div>
+        <div class="step__icon" aria-hidden="true">⇌</div>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <div class="step__card">
+          <h3>Borrow, if you want</h3>
+          <p>Borrow eligible assets against supported collateral up to its weight (50–85%). Keep Risk Level below 100%. Repay anytime, unwind safely — your collateral isn’t locked forever.</p>
+          <div class="step__meta">Risk Level is the single borrowing metric</div>
+        </div>
+        <div class="step__icon" aria-hidden="true">◌</div>
+      </div>
+    </div>
+
+    <div class="how-note">
+      <span>Tip:</span> Start by supplying a stablecoin to learn the flow. You don’t have to borrow to benefit from Scallop.
+      <a href="https://docs.scallop.io/scallop-protocol-mechanics/risk-level" target="_blank" rel="noopener">Risk Level explained →</a>
+    </div>
+  </div>
+</section>
+
+<!-- features bento -->
+<section class="section section--light" id="features">
+  <div class="wrap">
+    <div class="label"><span></span> Features</div>
+    <h2 class="h2">One protocol.<br>Many primitives.</h2>
+
+    <div class="bento">
+      <article class="bento__card bento__card--wide">
+        <div class="bento__top">
+          <span class="bento__icon">◈</span>
+          <span class="bento__tag">Core</span>
+        </div>
+        <h3>Lending &amp; Borrowing</h3>
+        <p>Over-collateralized markets designed for Sui’s object model. Risk Level aggregates all collateral and debt into one clear number.</p>
+        <div class="bento__stats">
+          <span><strong>11</strong> Lending pools</span>
+          <span><strong>6+</strong> Collateral assets</span>
+          <span><strong>≤100%</strong> liquidation at Risk Level 100%</span>
+        </div>
+      </article>
+
+      <article class="bento__card bento__card--tall">
+        <div class="bento__top"><span class="bento__icon">◎</span><span class="bento__tag">Yield-bearing</span></div>
+        <h3>sCoins</h3>
+        <p>Sui-standard coins that represent your supply. Transfer them, compose them — your claim moves with them.</p>
+        <code class="code">0x00…02::sui::SUI → scaSUI <span>≈ 1.0056 SUI</span></code>
+        <a href="https://docs.scallop.io/scallop-protocol-mechanics/sCoins" target="_blank" rel="noopener" class="link link--small">sCoin design →</a>
+      </article>
+
+      <article class="bento__card">
+        <div class="bento__top"><span class="bento__icon">⚡</span><span class="bento__tag">Composability</span></div>
+        <h3>Flash Loans</h3>
+        <p>Borrow any amount within a single Sui transaction with no upfront collateral — repay before the tx ends.</p>
+      </article>
+
+      <article class="bento__card">
+        <div class="bento__top"><span class="bento__icon">⬡</span><span class="bento__tag">Liquid Staking</span></div>
+        <h3>Stake SUI → scaSUI</h3>
+        <p>Liquid-stake via Scallop’s validator. Earn staking yield, stay liquid, and use scaSUI as collateral.</p>
+        <div class="bento__line"><span>scaSUI APR</span><strong>1.361% <small>224K SUI staked*</small></strong></div>
+      </article>
+
+      <article class="bento__card bento__card--wide bento__card--dark">
+        <div class="bento__row">
+          <div>
+            <div class="bento__top"><span class="bento__icon bento__icon--light">⬢</span><span class="bento__tag bento__tag--light">For builders</span></div>
+            <h3>SDK, Sui Kit &amp; APIs</h3>
+            <p>Everything a DeFi app needs: TypeScript SDK, Sui Kit for wallet &amp; tx, and open lending APIs. MIT-licensed, documented, and maintained.</p>
+            <div class="bento__links">
+              <a href="https://github.com/scallop-io/sui-scallop-sdk" target="_blank" rel="noopener">SDK →</a>
+              <a href="https://github.com/scallop-io/sui-kit" target="_blank" rel="noopener">Sui Kit →</a>
+              <a href="https://sui.apis.scallop.io/api-docs/" target="_blank" rel="noopener">API Docs →</a>
+            </div>
+          </div>
+          <div class="bento__code">
+<pre><span class="c">// install</span>
+npm i @scallop-io/sui-scallop-sdk
+
+<span class="c">// supply 10 SUI</span>
+<span class="k">await</span> scallop.lending.<span class="f">supply</span>({
+  coin: <span class="s">'SUI'</span>,
+  amount: <span class="n">10</span>
+})</pre>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="caption">*Staking APR and totals as shown in the app’s Stake view — varies with validator performance.</p>
+  </div>
+</section>
+
+<!-- protocol stats detailed -->
+<section class="section section--navy-dark" id="stats">
+  <div class="wrap">
+    <div class="stats-head">
+      <h2 class="h2 h2--light">Protocol at a glance</h2>
+      <p>Live numbers move every block. Below is a recent snapshot to set expectations — check the app for the live state.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="sg"><span class="sg__k">Total Value Locked</span><span class="sg__v">$10.25–10.26M</span><span class="sg__s">ac — across lending + collateral</span></div>
+      <div class="sg"><span class="sg__k">Total Supply &amp; Deposit</span><span class="sg__v">$12.74M → $7.35M supply</span><span class="sg__s">lending supply within TVL</span></div>
+      <div class="sg"><span class="sg__k">Collateral Deposited</span><span class="sg__v">$5.41M</span><span class="sg__s">backing active borrows</span></div>
+      <div class="sg"><span class="sg__k">Total Borrowed</span><span class="sg__v">$2.49M</span><span class="sg__s">utilization varies by pool</span></div>
+      <div class="sg sg--wide">
+        <span class="sg__k">Supported Assets (sample)</span>
+        <div class="chips">
+          <span>SUI</span><span>USDC</span><span>USDT</span><span>scaSUI</span><span>USDsui</span><span>haSUI</span><span>XAU</span><span>suiBTC</span>
+        </div>
+        <span class="sg__s">Assets and weights evolve — verify in app. Weights 50–85% by collateral type.</span>
+      </div>
+      <div class="sg sg--wide sg--callout">
+        <span class="sg__k">Price Feeds</span>
+        <p>Pyth Network on-chain oracles. Refreshed on actions that touch your obligation — no stale pricing.</p>
+        <a href="https://docs.scallop.io/scallop-protocol-mechanics" target="_blank" rel="noopener">Mechanics overview →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- security -->
+<section class="section section--light" id="security">
+  <div class="wrap">
+    <div class="label"><span></span> Security &amp; trust</div>
+    <h2 class="h2">Audited. Open. Verifiable.</h2>
+    <p class="lead">Scallop is audited by multiple firms. Audits reduce risk — they don’t eliminate it. Read the reports and the code.</p>
+
+    <div class="audit-grid">
+      <a class="audit" href="https://docs.scallop.io/resources/audits" target="_blank" rel="noopener">
+        <span class="audit__name">OtterSec</span>
+        <span class="audit__desc">Lending protocol &amp; Move modules</span>
+        <span class="audit__link">Audit reports →</span>
+      </a>
+      <a class="audit" href="https://docs.scallop.io/resources/audits" target="_blank" rel="noopener">
+        <span class="audit__name">Zellic</span>
+        <span class="audit__desc">Security review</span>
+        <span class="audit__link">Audit reports →</span>
+      </a>
+      <a class="audit" href="https://docs.scallop.io/resources/audits" target="_blank" rel="noopener">
+        <span class="audit__name">MoveBit</span>
+        <span class="audit__desc">Move security specialists</span>
+        <span class="audit__link">Audit reports →</span>
+      </a>
+      <a class="audit audit--accent" href="https://github.com/scallop-io/sui-lending-protocol" target="_blank" rel="noopener">
+        <span class="audit__name">Open source</span>
+        <span class="audit__desc">sui-lending-protocol on GitHub — read the Move code yourself</span>
+        <span class="audit__link">View on GitHub →</span>
+      </a>
+    </div>
+
+    <div class="security-note">
+      <strong>On risk:</strong> Smart contracts carry inherent risks. Never supply more than you can afford to lose. Borrow only at comfortable Risk Levels and monitor positions. Documentation and audits are points of diligence, not guarantees.
+    </div>
+  </div>
+</section>
+
+<!-- ecosystem -->
+<section class="section section--sand" id="ecosystem">
+  <div class="wrap">
+    <div class="eco-head">
+      <h2 class="h2">Part of the Sui ecosystem</h2>
+      <p>Scallop is native to Sui and composable with its DeFi stack. SCA is listed on several venues — always verify the contract address.</p>
+    </div>
+    <div class="eco-logos">
+      <span class="eco-logo">MEXC</span>
+      <span class="eco-logo">BingX</span>
+      <span class="eco-logo">CoinEx</span>
+      <span class="eco-logo">LBank</span>
+      <span class="eco-logo">Bucket Protocol</span>
+      <span class="eco-logo">Pyth Network</span>
+    </div>
+    <div class="eco-cta">
+      <span>Building on Scallop?</span>
+      <a href="https://docs.scallop.io/" target="_blank" rel="noopener">Developer docs →</a>
+      <a href="https://github.com/scallop-io/sui-lending-protocol" target="_blank" rel="noopener">Protocol repo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- final CTA -->
+<section class="section section--cta">
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="cta-card__bg" aria-hidden="true">
+        <div class="cta-bubble"></div><div class="cta-bubble"></div><div class="cta-bubble"></div>
+      </div>
+      <div class="cta-card__copy">
+        <h2>Ready to put<br><span>Sui to work</span>?</h2>
+        <p>Supply, stake, or build — Scallop is open to wallets and code alike. Start with a small supply and feel how the market breathes.</p>
+        <div class="cta-card__actions">
+          <a href="https://sui.scallop.io/" target="_blank" rel="noopener" class="btn btn--light btn--lg">Launch App <span class="btn__arrow">→</span></a>
+          <a href="https://docs.scallop.io/" target="_blank" rel="noopener" class="btn btn--outline-light btn--lg">Read the docs</a>
+        </div>
+        <span class="cta-card__note">You’ll be taken to sui.scallop.io (Sui Mainnet). Connect a Sui wallet to continue.</span>
+      </div>
+      <div class="cta-card__art" aria-hidden="true">
+        <div class="cta-shell">
+          <svg viewBox="0 0 220 140"><path d="M20 78 C 46 112, 78 132, 110 136 C 142 132, 174 112, 200 78 C 180 84, 144 87, 110 87 C 76 87, 40 84, 20 78 Z" fill="rgba(255,255,255,0.92)"/><path d="M20 78 C 34 42, 68 22, 110 18 C 152 22, 186 42, 200 78 C 180 72, 144 68, 110 68 C 76 68, 40 72, 20 78 Z" fill="rgba(255,255,255,0.78)"/><ellipse cx="110" cy="88" rx="14" ry="10" fill="#F1D6C8"/></svg>
+        </div>
+        <div class="cta-seaweed"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <img src="assets/logos/logotype_reversed_primary_color.svg" alt="Scallop" width="140">
+      <p>The next generation money market — built on Sui.</p>
+      <div class="footer__social">
+        <a href="https://twitter.com/Scallop_io" target="_blank" rel="noopener" aria-label="X">𝕏</a>
+        <a href="https://discord.gg/scallop" target="_blank" rel="noopener" aria-label="Discord">◈</a>
+        <a href="https://t.me/scallop_io" target="_blank" rel="noopener" aria-label="Telegram">✈</a>
+        <a href="https://github.com/scallop-io" target="_blank" rel="noopener" aria-label="GitHub">⬡</a>
+      </div>
+    </div>
+    <div class="footer__col">
+      <h4>Product</h4>
+      <a href="https://sui.scallop.io/" target="_blank" rel="noopener">Launch App</a>
+      <a href="https://sui.scallop.io/" target="_blank" rel="noopener">Lending</a>
+      <a href="https://sui.scallop.io/" target="_blank" rel="noopener">Borrowing</a>
+      <a href="https://sui.scallop.io/" target="_blank" rel="noopener">Stake</a>
+      <a href="https://sui.scallop.io/" target="_blank" rel="noopener">veSCA</a>
+    </div>
+    <div class="footer__col">
+      <h4>Developers</h4>
+      <a href="https://docs.scallop.io/" target="_blank" rel="noopener">Documentation</a>
+      <a href="https://github.com/scallop-io/sui-lending-protocol" target="_blank" rel="noopener">Lending Protocol</a>
+      <a href="https://github.com/scallop-io/sui-scallop-sdk" target="_blank" rel="noopener">TypeScript SDK</a>
+      <a href="https://github.com/scallop-io/sui-kit" target="_blank" rel="noopener">Sui Kit</a>
+      <a href="https://sui.apis.scallop.io/api-docs/" target="_blank" rel="noopener">API Docs</a>
+    </div>
+    <div class="footer__col">
+      <h4>Resources</h4>
+      <a href="https://www.scallop.io/" target="_blank" rel="noopener">scallop.io</a>
+      <a href="https://docs.scallop.io/resources/audits" target="_blank" rel="noopener">Audits</a>
+      <a href="https://docs.scallop.io/resources/brand-kit" target="_blank" rel="noopener">Brand Kit</a>
+      <a href="https://docs.scallop.io/" target="_blank" rel="noopener">Tutorials</a>
+    </div>
+  </div>
+  <div class="wrap footer__bar">
+    <span>© 2026 Scallop — This is an independent landing-page concept. Scallop trademarks and brand assets belong to their respective owners. Not an official Scallop endorsement.</span>
+    <span>Built for the Sui ecosystem • Move.</span>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
